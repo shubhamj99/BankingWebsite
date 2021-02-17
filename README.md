@@ -3,7 +3,7 @@ https://banking-web.herokuapp.com/
 
 A simple banking web app for simple money transfers and transaction records.
 
-# # Technology Used
+## Technology Used
 
 1. Node.JS
 
