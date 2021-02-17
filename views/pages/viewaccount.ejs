@@ -1,0 +1,73 @@
+<% layout('layouts/boilerplate') %>
+<link rel="stylesheet" href="/stylesheets/viewaccount.css">
+
+<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/images/cover1.jpeg" class="d-block w-100" alt="..." style="height: 50vh;">
+      </div>
+      <div class="carousel-item">
+        <img src="/images/cover2.jpeg" class="d-block w-100" alt="..." style="height: 50vh;">
+      </div>
+      <div class="carousel-item">
+        <img src="/images/cover3.jpeg" class="d-block w-100" alt="..." style="height: 50vh;">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
+  </div>
+
+<div class="container mt-3" style="margin: auto;">
+    <h2>Account Details</h2>
+    <div class="card mb-3 mt-3" style="max-width: 540px; margin: auto;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="/images/kelly.jpg" alt="..." style="height: 11rem; width: 11rem;">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Hi, <%= admin.name %> </h5>
+              <ul>
+                  <li><strong>Name:</strong> <%= admin.name %></li>
+                  <li><strong>Current Balance: </strong> &#x20b9 <%= admin.balance %></li>
+                  <li><strong>Email:</strong> <%= admin.email %></li>
+              </ul>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg followups d-flex justify-content-center">
+        <a href="/" class="btn btn-outline-success">Go Back</a> <a href="/transfer" class="btn btn-success">Transfer Money</a>
+      </div>
+</div>
+
+<div class="container mt-3 justify-content-center" style="margin: auto;">
+  <h2>Transactions</h2>
+  <% if(transacts.length){ %>
+    <div class="container mt-3 justify-content-center mb-5" style="margin: auto; max-height: 20rem; overflow-y: scroll;">
+      <ul class="list-group list-group-flush text-center container">
+        <% for(let transact of transacts){ %>
+          <li class="list-group-item d-flex justify-content-center text-muted">
+            <div style="width: 7rem;"><%= transact.user.name %></div>
+            <div style="margin-left: 11rem; margin-right: 10rem;"><%= transact.date %> </div>
+            <div style="width: 7rem;">&#x20b9 <%= transact.balance %></div>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  <% }else{ %>
+    <p class="text-muted d-flex justify-content-center mb-5 mt-3">No Transactions Available</p>
+    <% } %> 
+</div>

@@ -1,0 +1,76 @@
+<% layout('layouts/boilerplate') %>
+
+<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/images/AllAtOnePlace.jpeg" class="d-block w-100" alt="..." style="height: 50vh;">
+      </div>
+      <div class="carousel-item">
+        <img src="/images/NetBanking.jpeg" class="d-block w-100" alt="..." style="height: 50vh;">
+      </div>
+      <div class="carousel-item">
+        <img src="/images/Trustworthy.jpeg" class="d-block w-100" alt="..." style="height: 50vh;">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
+  </div>
+
+  <div class="container mt-3" style="margin: auto;">
+    <% let image = 1; %> 
+    <% for(let account of allAccounts){ %> 
+      <% if(account.name != "Kelly"){ %> 
+        <div class="card mb-3" style="max-width: 540px; margin: auto;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="/images/<%= image %>.jpg" alt="..." style="height: 11rem; width: 11rem;">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title"><%= account.name %> </h5>
+                  <p>Email:</strong> <%= account.email %></p>
+                  <p class="card-text"><small class="text-muted">Added 2 days ago</small></p>
+
+
+
+                  <!--Form-->
+                  <form action="/account" method="POST" class="row row-cols-lg-auto g-3 align-items-center">
+                    <div class="col-12">
+                      <label class="visually-hidden" for="amount">Amount</label>
+                      <div class="input-group">
+                        <div class="input-group-text">&#x20b9</div>
+                        <input type="number" class="form-control" id="amount" placeholder="Enter the amount" name="amount">
+                        <input type="hidden" value="<%= account._id %>" name="id">
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button class="btn btn-success btn-sm">Transfer</button>
+                    </div>
+                  </form>
+                  <!-- -->
+
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <% image++; %>  
+        <% } %> 
+      <% } %> 
+      <div class="bg followups d-flex justify-content-center mb-3">
+        <a href="/" class="btn btn-outline-success">Go Back</a>
+      </div>
+</div>

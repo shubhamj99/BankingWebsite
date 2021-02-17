@@ -1,0 +1,28 @@
+.bg{
+    background-color: #BFDED4;
+}
+img{
+    height: 80vh;
+    width: 80vw;
+}
+.centered {
+    letter-spacing: 2px;
+    position: absolute;
+    top: 16%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: x-large;
+    text-align: center;
+  }
+.tagline{
+    letter-spacing: 5px;
+    color: darkslategray;
+    font-size: 40px;
+}
+.followups{
+    justify-content: center;
+}
+.btn{
+    margin: 1rem;
+    margin-bottom: 3rem;
+}
