@@ -96,6 +96,9 @@ app.post('/account', async(req, res)=>{
         const recieverBalance = (+reciever.balance) + (+amount);
         sender.balance = balanceLeft;
         reciever.balance = recieverBalance;
+        if(sender.balance === 0){
+            sender.balance = 12000;
+        }
         await sender.save();
         await reciever.save();
 
